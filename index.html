@@ -3,7 +3,6 @@
 <head>
     <title>Vidya Portfolio</title>
 
-    <!-- Particles JS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
     <style>
@@ -15,7 +14,6 @@
             cursor: none;
         }
 
-        /* Particle Background */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -26,10 +24,8 @@
 
         .container {
             display: flex;
-            align-items: stretch;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 30%;
             padding: 30px;
@@ -44,66 +40,72 @@
             border: 2px solid #00f7ff;
         }
 
-        .sidebar a {
-            color: #00f7ff;
-            text-decoration: none;
-        }
-
         .sidebar hr {
             border: 0.5px solid rgba(255,255,255,0.2);
             margin: 20px 0;
         }
 
-        /* Main */
         .main {
             width: 70%;
             padding: 40px;
         }
 
-        /* Cards */
         .card {
             background: rgba(255,255,255,0.05);
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 10px;
             backdrop-filter: blur(10px);
-            transition: transform 0.2s ease;
-            transform-style: preserve-3d;
-        }
-
-        .card:hover {
-            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
+            transition: transform 0.2s;
         }
 
         h2 {
             color: #00f7ff;
         }
 
-        /* Skill bars */
-        .skill {
-            margin: 10px 0;
-        }
-
-        .bar {
-            height: 8px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-        }
-
-        .fill {
-            height: 8px;
-            background: #00f7ff;
-            border-radius: 10px;
-        }
-
-        /* Tags */
         .tag {
             display: inline-block;
             background: rgba(0,247,255,0.2);
             padding: 5px 10px;
             margin: 3px;
             border-radius: 20px;
-            font-size: 12px;
+        }
+
+        /* Circular Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#00f7ff var(--value), rgba(255,255,255,0.1) 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .circle::before {
+            content: "";
+            width: 85px;
+            height: 85px;
+            background: #0a0f1c;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .circle span {
+            position: relative;
+            font-size: 18px;
+        }
+
+        .skill-box {
+            text-align: center;
         }
 
         /* Cursor */
@@ -116,12 +118,8 @@
             pointer-events: none;
         }
 
-        /* Ripple */
         @keyframes ripple {
-            to {
-                transform: scale(6);
-                opacity: 0;
-            }
+            to { transform: scale(6); opacity: 0; }
         }
     </style>
 </head>
@@ -133,87 +131,64 @@
 
 <div class="container">
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <img src="profile.jpg">
         <h1>Vidya B</h1>
         <p>M.Tech Software Engineering</p>
 
-        <p>
-            <a href="#">LinkedIn</a><br><br>
-            <a href="https://github.com/vidya2705">GitHub</a>
-        </p>
-
         <hr>
 
-        <p><b>📍 Location</b></p>
-        <p>India</p>
-
-        <p><b>🎯 Focus</b></p>
-        <p>Frontend • Software Dev</p>
-
-        <p><b>🟢 Available</b></p>
+        <p><b>📍 India</b></p>
+        <p><b>🎯 Frontend • Software Dev</b></p>
         <p style="color: lightgreen;">Open to Internships</p>
 
         <hr>
 
-        <p><b>⚡ Quick Info</b></p>
-        <p>🎓 3rd Year Student</p>
+        <p>🎓 3rd Year</p>
         <p>💻 Learning Development</p>
-        <p>🚀 Building Portfolio</p>
     </div>
 
-    <!-- Main -->
     <div class="main">
 
         <div class="card">
             <h2 id="typing"></h2>
-            <p>
-                Integrated MTech Software Engineering student at VIT Vellore.
-                Building strong fundamentals and exploring development.
-            </p>
-
-            <p><b>Focus:</b> Frontend • Web + Software</p>
-            <p><b>Strength:</b> Consistency • Problem Solving</p>
-            <p><b>Currently:</b> 3rd Year</p>
-        </div>
-
-        <div class="card">
-            <h2>👤 Profile</h2>
-            <p>VIT Vellore • Software Engineering</p>
-            <span class="tag">Frontend Learner</span>
-            <span class="tag">Tech Explorer</span>
-        </div>
-
-        <div class="card">
-            <h2>🎯 Career Objective</h2>
-            <p>Seeking opportunities to build skills and gain real-world experience.</p>
-        </div>
-
-        <div class="card">
-            <h2>🎓 Education</h2>
-            <p>VIT University, Vellore<br>2023 – Present</p>
+            <p>Building skills and exploring technology.</p>
         </div>
 
         <div class="card">
             <h2>💻 Skills</h2>
 
-            <div class="skill">Python<div class="bar"><div class="fill" style="width:75%"></div></div></div>
-            <div class="skill">Java<div class="bar"><div class="fill" style="width:70%"></div></div></div>
-            <div class="skill">DBMS<div class="bar"><div class="fill" style="width:70%"></div></div></div>
+            <div class="skills-container">
 
-        </div>
+                <div class="skill-box">
+                    <div class="circle" style="--value:75%;">
+                        <span>75%</span>
+                    </div>
+                    <p>Python</p>
+                </div>
 
-        <div class="card">
-            <h2>🚀 Projects</h2>
-            <p>Currently building projects and improving development skills.</p>
-            <span class="tag">Learning Projects</span>
-            <span class="tag">Practice Apps</span>
-        </div>
+                <div class="skill-box">
+                    <div class="circle" style="--value:70%;">
+                        <span>70%</span>
+                    </div>
+                    <p>Java</p>
+                </div>
 
-        <div class="card">
-            <h2>🏆 Achievements</h2>
-            <p>Rajyapuraskar Award – Scouts & Guides</p>
+                <div class="skill-box">
+                    <div class="circle" style="--value:65%;">
+                        <span>65%</span>
+                    </div>
+                    <p>DS</p>
+                </div>
+
+                <div class="skill-box">
+                    <div class="circle" style="--value:70%;">
+                        <span>70%</span>
+                    </div>
+                    <p>DBMS</p>
+                </div>
+
+            </div>
         </div>
 
         <div class="card">
@@ -226,7 +201,6 @@
 
 </div>
 
-<!-- Typing -->
 <script>
 const text = "Hello, I'm Vidya";
 let i = 0;
@@ -238,19 +212,13 @@ function typeEffect() {
     }
 }
 typeEffect();
-</script>
 
-<!-- Cursor -->
-<script>
 const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", e => {
     cursor.style.top = e.clientY + "px";
     cursor.style.left = e.clientX + "px";
 });
-</script>
 
-<!-- Ripple -->
-<script>
 document.addEventListener("click", function(e) {
     let ripple = document.createElement("div");
     ripple.style.position = "fixed";
@@ -264,10 +232,7 @@ document.addEventListener("click", function(e) {
     document.body.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
 });
-</script>
 
-<!-- Particles -->
-<script>
 particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
@@ -281,26 +246,6 @@ particlesJS("particles-js", {
     },
     move: { enable: true, speed: 2 }
   }
-});
-</script>
-
-<!-- 3D Tilt -->
-<script>
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = ((y - rect.height/2) / rect.height) * 8;
-        const rotateY = ((x - rect.width/2) / rect.width) * -8;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
-    });
 });
 </script>
 
