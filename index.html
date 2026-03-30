@@ -3,6 +3,9 @@
 <head>
     <title>Vidya Portfolio</title>
 
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -11,37 +14,29 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
-        body::before {
-            content: "";
+        /* Particle Background */
+        #particles-js {
             position: fixed;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 20% 30%, #1e3c72, transparent),
-                        radial-gradient(circle at 80% 70%, #2a5298, transparent),
-                        black;
-            animation: moveBg 12s infinite alternate;
-            z-index: -1;
-        }
-
-        @keyframes moveBg {
-            0% { transform: translate(0,0); }
-            100% { transform: translate(-50px,-50px); }
+            width: 100%;
+            height: 100%;
+            background: #0a0f1c;
+            z-index: -2;
         }
 
         .container {
-    display: flex;
-    align-items: stretch;
-}
+            display: flex;
+            align-items: stretch;
+        }
 
         /* Sidebar */
-       .sidebar {
-    width: 30%;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    min-height: 100vh;
-}
+        .sidebar {
+            width: 30%;
+            padding: 30px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            min-height: 100vh;
+        }
+
         .sidebar img {
             width: 120px;
             border-radius: 50%;
@@ -53,6 +48,11 @@
             text-decoration: none;
         }
 
+        .sidebar hr {
+            border: 0.5px solid rgba(255,255,255,0.2);
+            margin: 20px 0;
+        }
+
         /* Main */
         .main {
             width: 70%;
@@ -60,19 +60,19 @@
         }
 
         /* Cards */
-      .card {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.2s ease;
-    transform-style: preserve-3d;
-}
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease;
+            transform-style: preserve-3d;
+        }
 
         .card:hover {
-    box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
-}
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
+        }
 
         h2 {
             color: #00f7ff;
@@ -94,10 +94,23 @@
             background: #00f7ff;
             border-radius: 10px;
         }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background: rgba(0,247,255,0.2);
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
     </style>
 </head>
 
 <body>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
 
 <div class="container">
 
@@ -111,60 +124,81 @@
             <a href="https://www.linkedin.com/in/YOUR-ID" target="_blank">LinkedIn</a><br><br>
             <a href="https://github.com/vidya2705" target="_blank">GitHub</a>
         </p>
+
+        <hr>
+
+        <p><b>📍 Location</b></p>
+        <p>India</p>
+
+        <p><b>🎯 Focus</b></p>
+        <p>Frontend • Software Dev</p>
+
+        <p><b>🟢 Available</b></p>
+        <p style="color: lightgreen;">Open to Internships</p>
+
+        <hr>
+
+        <p><b>⚡ Quick Info</b></p>
+        <p>🎓 3rd Year Student</p>
+        <p>💻 Learning Development</p>
+        <p>🚀 Building Portfolio</p>
     </div>
 
     <!-- Main Content -->
     <div class="main">
 
         <div class="card">
-            <h1>Hello, I’m Vidya</h1>
-            <h2>Vidya B</h2>
+            <h2>👋 Hello, I’m Vidya</h2>
             <p>
                 Integrated MTech Software Engineering student at VIT Vellore.
-                I am currently building my foundation in programming and exploring different areas in technology.
+                I am currently building my foundation in programming and exploring technology.
             </p>
 
             <p><b>Focus:</b> Frontend • Web + Software Development</p>
-            <p><b>Strength:</b> Consistency in learning • Problem Solving</p>
+            <p><b>Strength:</b> Consistency • Problem Solving</p>
             <p><b>Currently:</b> 3rd Year (2023–Present)</p>
         </div>
 
         <div class="card">
-            <h2>Profile</h2>
+            <h2>👤 Profile</h2>
             <p>VIT Vellore • Software Engineering</p>
             <p style="color: lightgreen;">● Open to internships</p>
 
             <p><b>Role Tags:</b></p>
-            <p>Frontend Learner • Software Development Learner • Tech Explorer</p>
+            <span class="tag">Frontend Learner</span>
+            <span class="tag">Software Dev Learner</span>
+            <span class="tag">Tech Explorer</span>
         </div>
 
         <div class="card">
-            <h2>Career Objective</h2>
+            <h2>🎯 Career Objective</h2>
             <p>
-                Motivated Integrated MTech Software Engineering student at VIT University, Vellore,
-                aiming to strengthen development skills, work on real-world applications,
-                and gain industry exposure through internships.
+                Motivated student aiming to strengthen development skills,
+                work on real-world applications, and gain industry experience.
             </p>
 
             <p><b>Focus Areas:</b></p>
-            <p>Building Fundamentals • Practical Development • Clean UI Design</p>
+            <span class="tag">Fundamentals</span>
+            <span class="tag">Development</span>
+            <span class="tag">Clean UI</span>
         </div>
 
         <div class="card">
-            <h2>Education</h2>
+            <h2>🎓 Education</h2>
             <p>
-                Vellore Institute of Technology (VIT), Vellore <br>
-                Integrated MTech – Software Engineering <br><br>
+                VIT University, Vellore <br>
+                M.Tech Integrated Software Engineering <br><br>
                 2023 – Present • 3rd Year
             </p>
 
-            <p><b>Track:</b> Software Engineering</p>
-            <p><b>Interests:</b> Web Development • Software Development • IoT</p>
-            <p><b>Goal:</b> Industry Internship</p>
+            <p><b>Interests:</b></p>
+            <span class="tag">Web</span>
+            <span class="tag">Software</span>
+            <span class="tag">IoT</span>
         </div>
 
         <div class="card">
-            <h2>Technical Skills</h2>
+            <h2>💻 Technical Skills</h2>
 
             <div class="skill">Python
                 <div class="bar"><div class="fill" style="width:75%"></div></div>
@@ -182,29 +216,27 @@
                 <div class="bar"><div class="fill" style="width:70%"></div></div>
             </div>
 
-            <div class="skill">Operating Systems
-                <div class="bar"><div class="fill" style="width:60%"></div></div>
-            </div>
-
         </div>
 
         <div class="card">
-            <h2>Achievements</h2>
+            <h2>🏆 Achievements</h2>
             <p>
                 Rajyapuraskar Award – Scouts & Guides <br>
-                Demonstrated leadership, discipline, teamwork, and community service.
+                Demonstrated leadership, discipline, and teamwork.
             </p>
         </div>
 
         <div class="card">
-            <h2>Soft Skills</h2>
-            <p>
-                Problem Solving • Quick Learner • Adaptability • Teamwork • Time Management • Communication
-            </p>
+            <h2>🧠 Soft Skills</h2>
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Quick Learner</span>
+            <span class="tag">Adaptability</span>
+            <span class="tag">Teamwork</span>
+            <span class="tag">Communication</span>
         </div>
 
         <div class="card">
-            <h2>Contact</h2>
+            <h2>📞 Contact</h2>
             <p><b>Email:</b> vidya.b2023@vitstudent.ac.in</p>
             <p><b>Phone:</b> 6384240092</p>
         </div>
@@ -212,6 +244,29 @@
     </div>
 
 </div>
+
+<!-- Particle Config -->
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80 },
+    "size": { "value": 3 },
+    "color": { "value": "#00f7ff" },
+    "line_linked": {
+      "enable": true,
+      "distance": 120,
+      "color": "#00f7ff",
+      "opacity": 0.4
+    },
+    "move": {
+      "enable": true,
+      "speed": 2
+    }
+  }
+});
+</script>
+
+<!-- 3D Tilt -->
 <script>
 const cards = document.querySelectorAll('.card');
 
@@ -235,5 +290,6 @@ cards.forEach(card => {
     });
 });
 </script>
+
 </body>
 </html>
