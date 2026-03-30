@@ -12,6 +12,7 @@
             font-family: 'Segoe UI';
             color: white;
             overflow-x: hidden;
+            cursor: none;
         }
 
         /* Particle Background */
@@ -104,13 +105,31 @@
             border-radius: 20px;
             font-size: 12px;
         }
+
+        /* Cursor */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: #00f7ff;
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Ripple */
+        @keyframes ripple {
+            to {
+                transform: scale(6);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<!-- Particle Background -->
 <div id="particles-js"></div>
+<div class="cursor"></div>
 
 <div class="container">
 
@@ -121,8 +140,8 @@
         <p>M.Tech Software Engineering</p>
 
         <p>
-            <a href="https://www.linkedin.com/in/YOUR-ID" target="_blank">LinkedIn</a><br><br>
-            <a href="https://github.com/vidya2705" target="_blank">GitHub</a>
+            <a href="#">LinkedIn</a><br><br>
+            <a href="https://github.com/vidya2705">GitHub</a>
         </p>
 
         <hr>
@@ -144,143 +163,137 @@
         <p>🚀 Building Portfolio</p>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="main">
 
         <div class="card">
-            <h2>👋 Hello, I’m Vidya</h2>
+            <h2 id="typing"></h2>
             <p>
                 Integrated MTech Software Engineering student at VIT Vellore.
-                I am currently building my foundation in programming and exploring technology.
+                Building strong fundamentals and exploring development.
             </p>
 
-            <p><b>Focus:</b> Frontend • Web + Software Development</p>
+            <p><b>Focus:</b> Frontend • Web + Software</p>
             <p><b>Strength:</b> Consistency • Problem Solving</p>
-            <p><b>Currently:</b> 3rd Year (2023–Present)</p>
+            <p><b>Currently:</b> 3rd Year</p>
         </div>
 
         <div class="card">
             <h2>👤 Profile</h2>
             <p>VIT Vellore • Software Engineering</p>
-            <p style="color: lightgreen;">● Open to internships</p>
-
-            <p><b>Role Tags:</b></p>
             <span class="tag">Frontend Learner</span>
-            <span class="tag">Software Dev Learner</span>
             <span class="tag">Tech Explorer</span>
         </div>
 
         <div class="card">
             <h2>🎯 Career Objective</h2>
-            <p>
-                Motivated student aiming to strengthen development skills,
-                work on real-world applications, and gain industry experience.
-            </p>
-
-            <p><b>Focus Areas:</b></p>
-            <span class="tag">Fundamentals</span>
-            <span class="tag">Development</span>
-            <span class="tag">Clean UI</span>
+            <p>Seeking opportunities to build skills and gain real-world experience.</p>
         </div>
 
         <div class="card">
             <h2>🎓 Education</h2>
-            <p>
-                VIT University, Vellore <br>
-                M.Tech Integrated Software Engineering <br><br>
-                2023 – Present • 3rd Year
-            </p>
-
-            <p><b>Interests:</b></p>
-            <span class="tag">Web</span>
-            <span class="tag">Software</span>
-            <span class="tag">IoT</span>
+            <p>VIT University, Vellore<br>2023 – Present</p>
         </div>
 
         <div class="card">
-            <h2>💻 Technical Skills</h2>
+            <h2>💻 Skills</h2>
 
-            <div class="skill">Python
-                <div class="bar"><div class="fill" style="width:75%"></div></div>
-            </div>
+            <div class="skill">Python<div class="bar"><div class="fill" style="width:75%"></div></div></div>
+            <div class="skill">Java<div class="bar"><div class="fill" style="width:70%"></div></div></div>
+            <div class="skill">DBMS<div class="bar"><div class="fill" style="width:70%"></div></div></div>
 
-            <div class="skill">Java
-                <div class="bar"><div class="fill" style="width:70%"></div></div>
-            </div>
+        </div>
 
-            <div class="skill">Data Structures
-                <div class="bar"><div class="fill" style="width:65%"></div></div>
-            </div>
-
-            <div class="skill">DBMS
-                <div class="bar"><div class="fill" style="width:70%"></div></div>
-            </div>
-
+        <div class="card">
+            <h2>🚀 Projects</h2>
+            <p>Currently building projects and improving development skills.</p>
+            <span class="tag">Learning Projects</span>
+            <span class="tag">Practice Apps</span>
         </div>
 
         <div class="card">
             <h2>🏆 Achievements</h2>
-            <p>
-                Rajyapuraskar Award – Scouts & Guides <br>
-                Demonstrated leadership, discipline, and teamwork.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>🧠 Soft Skills</h2>
-            <span class="tag">Problem Solving</span>
-            <span class="tag">Quick Learner</span>
-            <span class="tag">Adaptability</span>
-            <span class="tag">Teamwork</span>
-            <span class="tag">Communication</span>
+            <p>Rajyapuraskar Award – Scouts & Guides</p>
         </div>
 
         <div class="card">
             <h2>📞 Contact</h2>
-            <p><b>Email:</b> vidya.b2023@vitstudent.ac.in</p>
-            <p><b>Phone:</b> 6384240092</p>
+            <p>Email: vidya.b2023@vitstudent.ac.in</p>
+            <p>Phone: 6384240092</p>
         </div>
 
     </div>
 
 </div>
 
-<!-- Particle Config -->
+<!-- Typing -->
+<script>
+const text = "Hello, I'm Vidya";
+let i = 0;
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 80);
+    }
+}
+typeEffect();
+</script>
+
+<!-- Cursor -->
+<script>
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+    cursor.style.top = e.clientY + "px";
+    cursor.style.left = e.clientX + "px";
+});
+</script>
+
+<!-- Ripple -->
+<script>
+document.addEventListener("click", function(e) {
+    let ripple = document.createElement("div");
+    ripple.style.position = "fixed";
+    ripple.style.width = "20px";
+    ripple.style.height = "20px";
+    ripple.style.border = "2px solid #00f7ff";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+    ripple.style.animation = "ripple 0.6s linear";
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+});
+</script>
+
+<!-- Particles -->
 <script>
 particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 80 },
-    "size": { "value": 3 },
-    "color": { "value": "#00f7ff" },
-    "line_linked": {
-      "enable": true,
-      "distance": 120,
-      "color": "#00f7ff",
-      "opacity": 0.4
+  particles: {
+    number: { value: 80 },
+    size: { value: 3 },
+    color: { value: "#00f7ff" },
+    line_linked: {
+      enable: true,
+      distance: 120,
+      color: "#00f7ff",
+      opacity: 0.4
     },
-    "move": {
-      "enable": true,
-      "speed": 2
-    }
+    move: { enable: true, speed: 2 }
   }
 });
 </script>
 
 <!-- 3D Tilt -->
 <script>
-const cards = document.querySelectorAll('.card');
-
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-
-        const rotateX = ((y - midY) / midY) * 8;
-        const rotateY = ((x - midX) / midX) * -8;
+        const rotateX = ((y - rect.height/2) / rect.height) * 8;
+        const rotateY = ((x - rect.width/2) / rect.width) * -8;
 
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
     });
