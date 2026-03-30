@@ -60,18 +60,19 @@
         }
 
         /* Cards */
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-        }
+      .card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease;
+    transform-style: preserve-3d;
+}
 
         .card:hover {
-            transform: translateY(-5px);
-        }
+    box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
+}
 
         h2 {
             color: #00f7ff;
@@ -211,6 +212,28 @@
     </div>
 
 </div>
+<script>
+const cards = document.querySelectorAll('.card');
 
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+
+        const rotateX = ((y - midY) / midY) * 8;
+        const rotateY = ((x - midX) / midX) * -8;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
+});
+</script>
 </body>
 </html>
